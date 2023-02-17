@@ -1,0 +1,95 @@
+
+*{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#upbar{
+    background-color: black;
+    padding: 1%;
+
+}
+
+nav#menu-upbar{
+    vertical-align: middle;
+    text-align: right;
+    display: inline;
+    /* background-color: brown; */
+    display: inline-block;
+    /* border: solid 1px white; */
+    width: 45%;
+    font-weight: bold;
+    /* position: absolute; */
+    /* right: 100px; */
+
+}
+
+#menu-upbar>#btanunciar{
+    background-color: rgb(50, 207, 50);
+    padding: 10px;
+    border-radius: 3px;
+}
+
+#menu-upbar>#btanunciar:hover{
+color:white;
+}
+
+div#upbar>img{
+    vertical-align: middle;
+    display: inline-block;
+    /* border: solid 2px white; */
+    margin-right: 40%;
+}
+
+nav#menu-upbar>a{
+    display: inline-block;
+    /* background-color: aqua; */
+    color:white;
+    text-decoration: none;
+    margin-right: 4%;
+    /* border-top: solid 1px red;
+    height: 70px;
+     */
+}
+
+nav#menu-upbar>a:hover{
+    color:red
+}
+
+/* nav#menu-upbar>a:active{
+    color:blue; 
+     border-top: solid 1px red;
+} */
+
+div#container-searchmain{
+    display: inline-block;
+    margin:3% 5%;
+    text-align: center;
+    /* background-color: blue; */
+    width: 90%;
+    height: 50px;
+    padding: 1%;
+    border-radius: 5px;
+}
+input#searchmain{
+    width: 80%;
+    height: 100%;
+    font-size: larger;
+    border-radius: 5px;
+
+}
+
+div#container-searchmain>button{
+    background-color: red;
+    padding: 0 20px;
+    /* width: 20%; */
+    color: white;
+    height: 50px;
+    font-weight: bold;
+    font-size: larger;
+    border-radius: 5px;
+    border: 0;
+}
+
+button:hover{
+    cursor: pointer;
+}
