@@ -6,37 +6,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goiana.net - O Portal de Goiana</title>
     <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
 </head>
 <body>
 
-    <div id="upbar">
-        <img src="./images/Logo-pequeno-Goiana.NET_-e1649093420690.png" alt="">
-        <nav id="menu-upbar">
-            <a href="">Início</a>
-            <a href="">Anúncios</a>
-            <a href="">Empregos</a>
-            <a href="">Clima</a>
-            <a href="">Saiba mais</a>
-            <a href="">>| Entrar</a>
-            <a href="" id="btanunciar">+ Anunciar</a>
+    <div class="container">
+
+        <div id="upbar">
+            <img id="logo" src="./images/Logo-pequeno-Goiana.NET_-e1649093420690.png" alt="">
+            <span id="menubt" class="material-symbols-outlined">menu</span>
+            <!-- <nav >
+                <a href="">Início</a>
+                <a href="">Anúncios</a>
+                <a href="">Empregos</a>
+                <a href="">Clima</a>
+                <a href="">Saiba mais</a>
+                <a href="">>| Entrar</a>
+                <a href="" id="btanunciar">+ Anunciar</a> 
 
 
-        </nav>
-    </div>
+            </nav>-->
+            <nav id="menu-upbar" style="display: none;">
+                <a href=""><span class="material-symbols-outlined">star</span>Favoritos</a>
+                <a href=""><span class="material-symbols-outlined">settings</span>Configurações</a>
+                <a href=""><span class="material-symbols-outlined">mail</span>Contato</a>
+            </nav>
+        </div>
 
-    <div id="body">
+        <div id="bodyy">
 
-        <div id="container-searchmain">
-            <input type="search" name="searchmain" id="searchmain" placeholder="Pesquise em Goiana..."> <button>Pesquisar</button>  
+            <!-- <div id="container-searchmain">
+                <input type="search" name="searchmain" id="searchmain" placeholder="Pesquise em Goiana..."> <button>Pesquisar</button>  
+            </div> -->
+
+
+        </div>
+
+        <div id="donwbar">
+            <!-- <img src="./home_FILL0_wght400_GRAD0_opsz48 (1).svg" alt="" class="material-symbols-outlined"> -->
+             <span class="material-symbols-outlined" title="Início">home</span>
+            <span class="material-symbols-outlined" title="Notícias">campaign</span>
+            <span class="material-symbols-outlined" title="Publicar">add_box</span>
+            <span class="material-symbols-outlined" title="Negócios">storefront</span>
+            <span class="material-symbols-outlined" title="Seu Site">account_circle</span>
         </div>
 
     </div>
 
-    <div id="donwbar">
+    <script>
+        var menubt = document.getElementById('menubt')
+        var menu = document.getElementById('menu-upbar')
+       menubt.addEventListener("click", appearMenu)
+       menu.addEventListener("click", disappearMenu)
 
-    </div>
+       function appearMenu(){
 
+        // alert("teste")
+        if(menu.style.display=="none"){
+            menu.style.display="inline-block"
+        }
+       }
 
+       function disappearMenu(){
+
+        // alert("teste")
+        if(menu.style.display=="inline-block"){
+            menu.style.display="none"
+        }
+        }
+    </script>
 </body>
 </html>
