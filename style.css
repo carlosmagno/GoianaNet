@@ -17,12 +17,17 @@
 
 }
 
-#bodyy{
-    background-color: rgb(216, 38, 38);
-    /* padding: 1%; */
+/* #bodyy{
+    background-color: rgb(216, 38, 38); */
+    /* padding: 1%;
 
+} 
+*/
+iframe{
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
 }
-
 
 #donwbar{
     background-color: black;
