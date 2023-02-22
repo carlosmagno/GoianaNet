@@ -104,7 +104,7 @@ color:white;
 div#upbar>img{
    max-height: 60%;
     vertical-align: middle;
-    display: inline-block;
+    display: none;
     /* border: solid 2px white; */
     /* margin-right: 40%; */
 }
