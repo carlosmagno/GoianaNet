@@ -57,7 +57,12 @@
     </div>
 
     <script>
-        window.scrollTo(0,1);
+        
+        window.onload=desce()
+        function desce(){
+            window.scrollTo(0,1);
+        }
+        
         var menubt = document.getElementById('menubt')
         var menu = document.getElementById('menu-upbar')
        menubt.addEventListener("click", appearMenu)
