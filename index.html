@@ -28,14 +28,14 @@
 
 
             </nav>-->
-            <nav id="menu-upbar" style="display: none;">
+            <nav id="menuUpbar" style="display: none;">
                 <a href=""><span class="material-symbols-outlined">star</span>Favoritos</a>
                 <a href=""><span class="material-symbols-outlined">settings</span>Configurações</a>
                 <a href=""><span class="material-symbols-outlined">mail</span>Contato</a>
             </nav>
         </div>
 
-        <div id="bodyy">
+        <div id="bodybar">
 
             <!-- <div id="container-searchmain">
                 <input type="search" name="searchmain" id="searchmain" placeholder="Pesquise em Goiana..."> <button>Pesquisar</button>  
@@ -66,19 +66,39 @@
         }
         
         var menubt = document.getElementById('menubt')
-        var menu = document.getElementById('menu-upbar')
+        var menuUpbar = document.getElementById('menuUpbar')
         var homebt = document.getElementById('homebt')
         var newsbt = document.getElementById('newsbt')
         var addbt = document.getElementById('addbt')
         var storebt = document.getElementById('storebt')
         var accountbt = document.getElementById('accountbt')
-
+        
+        /*ID de áreas e divs*/
         var container = document.getElementById('container')
+        var upbar= document.getElementById('upbar')
+        var bodybar = document.getElementById('bodybar')
+        var donwbar = document.getElementById('donwbar')
+
 
         menubt.addEventListener("click", appearMenu)
-        menu.addEventListener("click", disappearMenu)
-        menu.addEventListener("mouseleave", disappearMenu)
-        //container.addEventListener("click", disappearMenu)
+        //menuUpbar.addEventListener("click", disappearMenu)
+        //upbar.addEventListener("click", disappearMenu)
+        //bodybar.addEventListener("click", disappearMenu)
+        //donwbar.addEventListener("click", disappearMenu)
+
+        //menuUpbar.addEventListener("mouseleave", disappearMenu)
+       // menuUpbar.addEventListener("pointerleave", disappearMenu)
+
+        container.addEventListener("touchstart", (e)=>{
+            //console.log(e)
+            var ele = e.srcElement.id
+            
+            if(ele!=="menuUpbar"){
+                disappearMenu()
+                //console.log(ele)
+                //alert("teste")
+            }
+        })
 
         /*
         Ativando temporariamente uma função qualquer aos botões da barra inferior
@@ -90,19 +110,20 @@
         accountbt.addEventListener("click", appearMenu);
         /**/
 
+
         function appearMenu(){
 
             // alert("teste")
-            if(menu.style.display=="none"){
-                menu.style.display="inline-block"
+            if(menuUpbar.style.display=="none"){
+                menuUpbar.style.display="inline-block"
             }
         }
 
         function disappearMenu(){
 
             // alert("teste")
-            if(menu.style.display=="inline-block"){
-                menu.style.display="none"
+            if(menuUpbar.style.display=="inline-block"){
+                menuUpbar.style.display="none"
             }
             }
     </script>
