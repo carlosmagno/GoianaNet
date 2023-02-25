@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="container" id="container">
 
         <div id="upbar">
             <img id="logo" src="./images/Logo-pequeno-Goiana.NET_-e1649093420690.png" alt="">
@@ -47,18 +47,18 @@
 
         <div id="donwbar">
             <!-- <img src="./home_FILL0_wght400_GRAD0_opsz48 (1).svg" alt="" class="material-symbols-outlined"> -->
-             <span class="material-symbols-outlined" title="Início">home</span>
-            <span class="material-symbols-outlined" title="Notícias">campaign</span>
-            <span class="material-symbols-outlined" title="Publicar">add_box</span>
-            <span class="material-symbols-outlined" title="Negócios">storefront</span>
-            <span class="material-symbols-outlined" title="Seu Site">account_circle</span>
+             <span id="homebt" class="material-symbols-outlined" title="Início">home</span>
+            <span id="newsbt" class="material-symbols-outlined" title="Notícias">campaign</span>
+            <span id="addbt" class="material-symbols-outlined" title="Publicar">add_box</span>
+            <span id="storebt" class="material-symbols-outlined" title="Negócios">storefront</span>
+            <span id="accountbt" class="material-symbols-outlined" title="Seu Site">account_circle</span>
         </div>
 
     </div>
 
     <script>
         
-       
+        
         window.onload=desce()
         function desce(){
             window.scrollTo(0,100);
@@ -67,24 +67,44 @@
         
         var menubt = document.getElementById('menubt')
         var menu = document.getElementById('menu-upbar')
-       menubt.addEventListener("click", appearMenu)
-       menu.addEventListener("click", disappearMenu)
+        var homebt = document.getElementById('homebt')
+        var newsbt = document.getElementById('newsbt')
+        var addbt = document.getElementById('addbt')
+        var storebt = document.getElementById('storebt')
+        var accountbt = document.getElementById('accountbt')
 
-       function appearMenu(){
+        var container = document.getElementById('container')
 
-        // alert("teste")
-        if(menu.style.display=="none"){
-            menu.style.display="inline-block"
+        menubt.addEventListener("click", appearMenu)
+        menu.addEventListener("click", disappearMenu)
+        menu.addEventListener("mouseleave", disappearMenu)
+        //container.addEventListener("click", disappearMenu)
+
+        /*
+        Ativando temporariamente uma função qualquer aos botões da barra inferior
+        */
+        homebt.addEventListener("click", appearMenu);
+        newsbt .addEventListener("click", appearMenu);
+        addbt.addEventListener("click", appearMenu);
+        storebt.addEventListener("click", appearMenu);
+        accountbt.addEventListener("click", appearMenu);
+        /**/
+
+        function appearMenu(){
+
+            // alert("teste")
+            if(menu.style.display=="none"){
+                menu.style.display="inline-block"
+            }
         }
-       }
 
-       function disappearMenu(){
+        function disappearMenu(){
 
-        // alert("teste")
-        if(menu.style.display=="inline-block"){
-            menu.style.display="none"
-        }
-        }
+            // alert("teste")
+            if(menu.style.display=="inline-block"){
+                menu.style.display="none"
+            }
+            }
     </script>
 </body>
 </html>
