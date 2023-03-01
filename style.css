@@ -106,6 +106,51 @@ nav#menuUpbar{
 
 }
 
+div#Noticias{
+    position: absolute;
+    right: 0;
+    vertical-align: middle;
+    background-color: rgb(235, 231, 0);
+    width:100vw;
+    height: 90vh;
+    display: inline-block;
+
+}
+
+div#Publicar{
+    position: absolute;
+    right: 0;
+    vertical-align: middle;
+    background-color: rgb(20, 74, 175);
+    width:100vw;
+    height: 90vh;
+    display: inline-block;
+
+}
+
+div#Negocios{
+    position: absolute;
+    right: 0;
+    vertical-align: middle;
+    background-color: rgb(25, 233, 25);
+    width:100vw;
+    height: 90vh;
+    display: inline-block;
+
+}
+
+div#Perfil{
+    position: absolute;
+    right: 0;
+    vertical-align: middle;
+    background-color: rgb(138, 6, 190);
+    width:100vw;
+    height: 90vh;
+    display: inline-block;
+
+}
+
+
 #menuUpbar>#btanunciar{
     background-color: rgb(50, 207, 50);
     padding: 10px;

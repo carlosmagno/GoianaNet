@@ -54,6 +54,23 @@
             <span id="accountbt" class="material-symbols-outlined" title="Seu Site">account_circle</span>
         </div>
 
+        <div id="Noticias" style="display: none;">
+            <h1>Noticias</h1>
+        </div>
+
+        <div id="Publicar" style="display: none;">
+            <h1>Publicar</h1>
+        </div>
+
+        <div id="Negocios" style="display: none;">
+            <h1>Negócios</h1>
+        </div>
+
+        <div id="Perfil" style="display: none;">
+            <h1>Perfil</h1>
+        </div>
+
+
     </div>
 
     <script>
@@ -79,6 +96,11 @@
         var bodybar = document.getElementById('bodybar')
         var donwbar = document.getElementById('donwbar')
 
+        /*ID de Telas e divs*/
+        var Noticias = document.getElementById('Noticias')
+        var Publicar= document.getElementById('Publicar')
+        var Negocios = document.getElementById('Negocios')
+        var Perfil = document.getElementById('Perfil')
 
         menubt.addEventListener("click", appearMenu)
         //menuUpbar.addEventListener("click", disappearMenu)
@@ -103,29 +125,67 @@
         /*
         Ativando temporariamente uma função qualquer aos botões da barra inferior
         */
-        homebt.addEventListener("click", appearMenu);
-        newsbt .addEventListener("click", appearMenu);
-        addbt.addEventListener("click", appearMenu);
-        storebt.addEventListener("click", appearMenu);
-        accountbt.addEventListener("click", appearMenu);
+        homebt.addEventListener("click", appearHome);
+        newsbt .addEventListener("click", appearNews);
+        addbt.addEventListener("click", appearPublic);
+        storebt.addEventListener("click", appearStore);
+        accountbt.addEventListener("click", appearAccount);
         /**/
 
 
         function appearMenu(){
-
-            // alert("teste")
             if(menuUpbar.style.display=="none"){
                 menuUpbar.style.display="inline-block"
             }
         }
 
-        function disappearMenu(){
+        function appearHome(){
+            ocultDivs()
+        }
 
-            // alert("teste")
+        function disappearMenu(){
             if(menuUpbar.style.display=="inline-block"){
                 menuUpbar.style.display="none"
             }
+        }
+
+        
+        function ocultDivs(){
+            Noticias.style.display="none"
+            Publicar.style.display="none"
+            Negocios.style.display="none"
+            Perfil.style.display="none"
+        }
+
+        function appearNews(){
+            if(Noticias.style.display=="none"){
+            ocultDivs();
+                Noticias.style.display="inline-block";
             }
+        }
+
+        function appearPublic(){
+            if(Publicar.style.display=="none"){
+            ocultDivs()
+                Publicar.style.display="inline-block"
+            }
+        }
+
+        function appearStore(){
+            if(Negocios.style.display=="none"){
+            ocultDivs()
+                Negocios.style.display="inline-block"
+            }
+        }
+
+        function appearAccount(){
+            if(Perfil.style.display=="none"){
+            ocultDivs()
+                Perfil.style.display="inline-block"
+            }
+        }
+
+
     </script>
 </body>
 </html>
