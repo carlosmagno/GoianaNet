@@ -59,21 +59,110 @@
         </div>
 
         <div id="Publicar" style="display: none;">
-            <h1>Publicar</h1>
+            <h1>Publicar</h1><br>
+            <h2>O que você deseja publicar?</h2><br>
+            <div id="btPublicStore"><h2>Um negócio</h2></div>
+            <div id="btPublicNews"><h2>Uma notícia</h2></div>
+            <div id="PublicStore" style="display:none;">
+                <div>
+                    <input type="file" name="" id="fileInput" accept="image/jpeg, image/png, image/jpg">
+                    <input type="file" name="" id="stringInput">
+                    <br><input type="text" name="" id="NameStore" placeholder="Nome do negócio">
+                    <br><input type="url" name="" id="Insta" placeholder="Instagram">
+                    <br><input type="url" name="" id="Face" placeholder="Facebook">
+                    <br><input type="tel" name="" id="Phone" placeholder="Telefone">
+                    <br><input type="tel" name="" id="Whats" placeholder="WhatsApp">
+                    <br><button id="btPublic">Publicar</button>
+                </div>
+            </div>
+            <template id="PublicNews">
+
+            </template>
+            
+            
         </div>
 
         <div id="Negocios" style="display: none;">
             <h1>Negócios</h1>
         </div>
-
         <div id="Perfil" style="display: none;">
             <h1>Perfil</h1>
         </div>
 
 
     </div>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/5.0.0/firebase-ui-auth__pt_br.js"></script>
+    <script>       
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyBr1GezEQH5TxzmyEC-dfiRTtxHdJ8_Nt0",
+          authDomain: "goiananet.firebaseapp.com",
+          projectId: "goiananet",
+          storageBucket: "goiananet.appspot.com",
+          messagingSenderId: "665162973674",
+          appId: "1:665162973674:web:628b2187d45def1ba7b293"
+        };
+      
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        // Initialize Cloud Storage and get a reference to the service
+        const storage = firebase.storage();
+      </script>
 
     <script>
+        
+        var ref = firebase.storage().ref("Arquivos")
+
+        var fileInput = document.getElementById('fileInput')
+        var stringInput = document.getElementById('stringInput')
+
+        var NameStore = document.getElementById('NameStore')
+        var Insta = document.getElementById('Insta')
+        var Face = document.getElementById('Face')
+        var Phone = document.getElementById('Phone')
+        var Whats= document.getElementById('Whats')
+
+
+        
+        var btPublic = document.getElementById("btPublic")
+        var arquivo 
+        fileInput.onchange = function(event){
+            arquivo = event.target.files[0];
+            console.log("aquivo carregado")
+        }
+
+        btPublic.addEventListener('click', (e)=>{
+
+
+
+
+            ref.child('arquivo1').put(arquivo).then(snapshot =>{
+                console.log("snapshot", snapshot)
+                ref.child('arquivo1').getDownloadURL().then(url =>{
+                    console.log('string p donwload', url)
+
+                    var objNegocio= {nome: NameStore.value, instagram: Insta.value, facebook: Face.value, telefone: Phone.value,whatsapp: Whats.value, Foto:url};
+
+                    firebase.firestore().collection('negocios').doc().set(objNegocio).then(()=>{
+                    PublicStore.style.display="none"
+                    NameStore.value="";Insta.value="";Face.value="";Phone.value="";Whats.value="";fileInput.value="";
+                    alert("Parabéns! Negócio Publicado!")
+                    });
+                });
+            });
+
+        })
+
+
+
+    </script>
+    
+    <script>
+                
         
         
         window.onload=desce()
@@ -185,7 +274,17 @@
             }
         }
 
-
+        var btPublicStore = document.getElementById("btPublicStore")
+        var PublicStore = document.getElementById("PublicStore")
+        btPublicStore.addEventListener('click', (e)=>{
+            //let temp = PublicStore.content.cloneNode(true)
+            PublicStore.style.display="block"
+            PublicStore.style.position="absolute"
+            PublicStore.style.width="100vw"
+            PublicStore.style.height="70vh"
+            PublicStore.style.top="10vh"
+            PublicStore.style.backgroundColor="white"
+        })
     </script>
 </body>
 </html>

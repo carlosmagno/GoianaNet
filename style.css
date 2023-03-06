@@ -118,15 +118,33 @@ div#Noticias{
 }
 
 div#Publicar{
+    
     position: absolute;
     right: 0;
     vertical-align: middle;
+    text-align: center;
     background-color: rgb(20, 74, 175);
     width:100vw;
     height: 90vh;
     display: inline-block;
 
 }
+
+div#Publicar>div{
+    margin: 0 auto 10px;
+    border: 1px solid black;
+    border-radius:5px;
+    width: 50%;
+    padding: 30px 0;
+}
+
+div#Publicar>div:hover{
+    border: 2px solid black;
+    cursor: pointer;
+    /* scale: 1.2; */
+
+}
+
 
 div#Negocios{
     position: absolute;
