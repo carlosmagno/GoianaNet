@@ -58,6 +58,7 @@ iframe{
     top:5px;
     /* scale:1.5; */
    /* line-height: 8vh;*/
+   transition: transform 0.3s;
 } 
 #donwbar .material-symbols-outlined  {
   font-variation-settings:
@@ -79,13 +80,15 @@ iframe{
   line-height: 8vh;
   /* scale:1.5; */
   margin:0 20px;
+  transition: transform 0.3s;
 }
 
 
 #donwbar .material-symbols-outlined:hover,#upbar .material-symbols-outlined:hover{
 color: rgb(245, 3, 3);
 cursor:pointer;
-scale:1.3;
+/* scale:1.3; */
+transform: scale(1.3);
 }
 nav#menuUpbar{
     position: absolute;
@@ -103,6 +106,7 @@ nav#menuUpbar{
     /* position: absolute; */
     /* right: 100px; */
     /* z-index: 0; */
+    transition: transform 0.3s;
 
 }
 
@@ -136,12 +140,17 @@ div#Publicar>div{
     border-radius:5px;
     width: 50%;
     padding: 30px 0;
+    transition: transform 0.5s;
+    
+    
 }
 
 div#Publicar>div:hover{
     border: 2px solid black;
     cursor: pointer;
     /* scale: 1.2; */
+    transform: scale(1.02);
+    /* transform: rotate(0.1turn); */
 
 }
 
