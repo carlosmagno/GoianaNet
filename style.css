@@ -123,7 +123,7 @@ div#Publicar{
     right: 0;
     vertical-align: middle;
     text-align: center;
-    background-color: rgb(20, 74, 175);
+    background-color: rgb(255, 255, 255);
     width:100vw;
     height: 90vh;
     display: inline-block;
@@ -150,13 +150,29 @@ div#Negocios{
     position: absolute;
     right: 0;
     vertical-align: middle;
-    background-color: rgb(25, 233, 25);
+    background-color: rgb(255, 255, 255);
     width:100vw;
     height: 90vh;
     display: inline-block;
-
+    overflow: scroll;
 }
 
+div#negocio{
+    margin:0 auto 15px ;
+    width: 70vw;
+    border:solid 1px;
+}
+
+div#negocio>img{
+   height:50px;
+   width:50px;
+   border-radius:50%;
+}
+
+div#negocio>div{
+    display:inline-block;
+    vertical-align: super;
+}
 div#Perfil{
     position: absolute;
     right: 0;

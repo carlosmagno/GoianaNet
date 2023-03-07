@@ -82,8 +82,34 @@
             
         </div>
 
-        <div id="Negocios" style="display: none;">
+        <div id="Negocios" style="display:none; ">
             <h1>Negócios</h1>
+            <template id="tpl1">
+                <div style="margin:0 auto 10px ;width: 70vw;">
+                    <img src="" alt="" style="height:auto;width:50px;border-radius:50%;">
+                    <div style="display:inline-block; vertical-align: super;">
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                </div>
+            </template>
+            <!-- <div style="margin:0 auto 10px ;width: 70vw;">
+                <img src="images/instagram.jpg" alt="" style="height:5auto;width:50px;border-radius:50%;">
+                <div style="display:inline-block; vertical-align: super;">
+                    <h3>Magda Modas</h3>
+                    <p>Tudo em moda íntima e fitness!</p>
+                </div>
+
+            </div>
+
+            <div style="margin:0 auto 10px ;width: 70vw;">
+                <img src="images/Logo-pequeno-Goiana.NET_-e1649093420690.png" alt="" style="height:auto;width:50px;border-radius:50%;">
+                <div style="display:inline-block; vertical-align: super;">
+                    <h3>Goiana Net</h3>
+                    <p>Tudo para seu marketing digital!</p>
+                </div>
+
+            </div> -->
         </div>
         <div id="Perfil" style="display: none;">
             <h1>Perfil</h1>
@@ -91,9 +117,11 @@
 
 
     </div>
+
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/5.0.0/firebase-ui-auth__pt_br.js"></script>
     <script>       
@@ -115,7 +143,10 @@
 
     <script>
         
-        var ref = firebase.storage().ref("Arquivos")
+        var refImg = firebase.storage().ref("Imagens-Negócios")
+
+        //Cria um ID unico sem inserir nada no firebase realtime database
+        var uid = firebase.database().ref().push().key
 
         var fileInput = document.getElementById('fileInput')
         var stringInput = document.getElementById('stringInput')
@@ -129,20 +160,26 @@
 
         
         var btPublic = document.getElementById("btPublic")
-        var arquivo 
+        var arquivo ;
         fileInput.onchange = function(event){
             arquivo = event.target.files[0];
-            console.log("aquivo carregado")
+            console.log("arquivo carregado")
         }
 
         btPublic.addEventListener('click', (e)=>{
+            // var timestamp = new Date().getTime();
+            // console.log(timestamp);
 
 
 
-
-            ref.child('arquivo1').put(arquivo).then(snapshot =>{
+            refImg.child(uid).put(arquivo).then(snapshot =>{
                 console.log("snapshot", snapshot)
-                ref.child('arquivo1').getDownloadURL().then(url =>{
+
+                refImg.child(uid).getMetadata().then(metadata =>{
+                    console.log(metadata)
+                });
+
+                refImg.child(uid).getDownloadURL().then(url =>{
                     console.log('string p donwload', url)
 
                     var objNegocio= {nome: NameStore.value, instagram: Insta.value, facebook: Face.value, telefone: Phone.value,whatsapp: Whats.value, Foto:url};
@@ -265,6 +302,32 @@
             ocultDivs()
                 Negocios.style.display="inline-block"
             }
+
+            const tpl1 = document.getElementById("tpl1")
+
+            firebase.firestore().collection("negocios").get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    console.log(doc.id, " => ", doc.data());
+
+                //var template = 
+                    
+                    // Negocios.append(tpl1.content.cloneNode(true));
+                    // console.log(tpl1.content.img)
+
+
+                    var div = document.createElement("div");
+
+                    div.innerHTML = `<div id ="negocio">\n<img src="${doc.data().Foto}" alt="">\n<div>\n<h3>${doc.data().nome}</h3>\n<p>${doc.data().facebook}</p>\n</div>\n</div>`
+
+                    Negocios.appendChild(div)
+              
+                });
+            })
+            .catch((error) => {
+                console.log("Error getting documents: ", error);
+            });
+
+
         }
 
         function appearAccount(){
